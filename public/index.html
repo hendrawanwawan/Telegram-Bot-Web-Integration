@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message to Telegram Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Send Message to Telegram</h1>
+            <p>Your message will be delivered directly to Telegram!</p>
+        </div>
+
+        <div class="form-container">
+            <form id="messageForm">
+                <div class="form-group">
+                    <label for="name">👤 Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">� Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">�️ Image (Optional)</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Send to Telegram</span>
+                    <span class="btn-icon">🚀</span>
+                </button>
+            </form>
+        </div>
+
+        <div id="notification" class="notification"></div>
+
+        <div class="info-section">
+            <h3>ℹ️ How it works</h3>
+            <ul>
+                <li>Fill in your name and message</li>
+                <li>Optionally upload an image (JPG, PNG, GIF, etc.)</li>
+                <li>Click "Send to Telegram" button</li>
+                <li>Your message will be instantly delivered to the configured Telegram chat</li>
+                <li>You'll receive a confirmation once sent successfully</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
