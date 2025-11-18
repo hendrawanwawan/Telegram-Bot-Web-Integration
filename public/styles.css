@@ -1,250 +1,744 @@
-* {
+* {* {* {
+
     margin: 0;
-    padding: 0;
+
+    padding: 0;    margin: 0;    margin: 0;
+
     box-sizing: border-box;
-}
 
-body {
+}    padding: 0;    padding: 0;
+
+
+
+body {    box-sizing: border-box;    box-sizing: border-box;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);}}
+
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
-    align-items: center;
+
+    align-items: center;body {body {
+
     padding: 20px;
+
+}    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+
+
+.container {    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    max-width: 600px;
+
+    width: 100%;    min-height: 100vh;    min-height: 100vh;
+
 }
 
-.container {
-    max-width: 600px;
-    width: 100%;
-}
+    display: flex;    display: flex;
 
 .header {
-    text-align: center;
+
+    text-align: center;    justify-content: center;    justify-content: center;
+
     color: white;
-    margin-bottom: 30px;
+
+    margin-bottom: 30px;    align-items: center;    align-items: center;
+
 }
+
+    padding: 20px;    padding: 20px;
 
 .header h1 {
-    font-size: 2.5rem;
+
+    font-size: 2.5rem;}}
+
     margin-bottom: 10px;
+
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
 }
+
+.container {.container {
 
 .header p {
-    font-size: 1.1rem;
+
+    font-size: 1.1rem;    max-width: 600px;    max-width: 600px;
+
     opacity: 0.9;
-}
 
-.form-container {
+}    width: 100%;    width: 100%;
+
+
+
+.form-container {}}
+
     background: white;
+
     border-radius: 20px;
+
     padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);.header {.header {
+
     margin-bottom: 20px;
-}
 
-.form-group {
+}    text-align: center;    text-align: center;
+
+
+
+.form-group {    color: white;    color: white;
+
     margin-bottom: 25px;
-}
 
-.form-group label {
+}    margin-bottom: 30px;    margin-bottom: 30px;
+
+
+
+.form-group label {}}
+
     display: block;
+
     font-weight: 600;
+
     margin-bottom: 8px;
-    color: #333;
+
+    color: #333;.header h1 {.header h1 {
+
     font-size: 1rem;
+
+}    font-size: 2.5rem;    font-size: 2.5rem;
+
+
+
+.form-group input,    margin-bottom: 10px;    margin-bottom: 10px;
+
+.form-group textarea {
+
+    width: 100%;    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 15px;
+
+    border: 2px solid #e0e0e0;}}
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+
+    transition: all 0.3s ease;
+
+    font-family: inherit;.header p {.header p {
+
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
+    font-size: 1.1rem;    font-size: 1.1rem;
 
 .form-group input:focus,
-.form-group textarea:focus {
+
+.form-group textarea:focus {    opacity: 0.9;    opacity: 0.9;
+
     outline: none;
-    border-color: #667eea;
+
+    border-color: #667eea;}}
+
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+
 }
 
-.form-group textarea {
+
+
+.form-group textarea {.form-container {.form-container {
+
     resize: vertical;
-    min-height: 120px;
+
+    min-height: 120px;    background: white;    background: white;
+
 }
+
+    border-radius: 20px;    border-radius: 20px;
 
 .form-group input[type="file"] {
-    padding: 10px;
+
+    padding: 10px;    padding: 40px;    padding: 40px;
+
     cursor: pointer;
-    background: #f8f9fa;
+
+    background: #f8f9fa;    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
 }
+
+    margin-bottom: 20px;    margin-bottom: 20px;
 
 .form-group input[type="file"]::-webkit-file-upload-button {
-    padding: 8px 15px;
+
+    padding: 8px 15px;}}
+
     border: none;
+
     border-radius: 6px;
+
     background: #667eea;
-    color: white;
+
+    color: white;.form-group {.form-group {
+
     cursor: pointer;
-    font-weight: 500;
+
+    font-weight: 500;    margin-bottom: 25px;    margin-bottom: 25px;
+
     transition: all 0.3s ease;
-}
+
+}}}
+
+
 
 .form-group input[type="file"]::-webkit-file-upload-button:hover {
+
     background: #764ba2;
+
+}.form-group label {.form-group label {
+
+
+
+.image-preview {    display: block;    display: block;
+
+    margin-top: 15px;
+
+    display: none;    font-weight: 600;    font-weight: 600;
+
 }
 
-.image-preview {
-    margin-top: 15px;
-    display: none;
-}
+    margin-bottom: 8px;    margin-bottom: 8px;
 
 .image-preview.show {
-    display: block;
+
+    display: block;    color: #333;    color: #333;
+
 }
+
+    font-size: 1rem;    font-size: 1rem;
 
 .image-preview img {
-    max-width: 100%;
+
+    max-width: 100%;}}
+
     max-height: 300px;
+
     border-radius: 10px;
+
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+}.form-group input,.form-group input,
+
+
+
+.image-preview .remove-image {.form-group textarea {.form-group textarea {
+
+    display: inline-block;
+
+    margin-top: 10px;    width: 100%;    width: 100%;
+
+    padding: 8px 15px;
+
+    background: #f44336;    padding: 12px 15px;    padding: 12px 15px;
+
+    color: white;
+
+    border: none;    border: 2px solid #e0e0e0;    border: 2px solid #e0e0e0;
+
+    border-radius: 6px;
+
+    cursor: pointer;    border-radius: 10px;    border-radius: 10px;
+
+    font-size: 0.9rem;
+
+    transition: all 0.3s ease;    font-size: 1rem;    font-size: 1rem;
+
 }
 
-.image-preview .remove-image {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: #f44336;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
+    transition: all 0.3s ease;    transition: all 0.3s ease;
 
 .image-preview .remove-image:hover {
-    background: #d32f2f;
+
+    background: #d32f2f;    font-family: inherit;    font-family: inherit;
+
 }
+
+}}
 
 .submit-btn {
+
     width: 100%;
+
     padding: 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);.form-group input:focus,.form-group input:focus,
+
     color: white;
-    border: none;
+
+    border: none;.form-group textarea:focus {.form-group textarea:focus {
+
     border-radius: 10px;
-    font-size: 1.1rem;
+
+    font-size: 1.1rem;    outline: none;    outline: none;
+
     font-weight: 600;
-    cursor: pointer;
+
+    cursor: pointer;    border-color: #667eea;    border-color: #667eea;
+
     transition: all 0.3s ease;
-    display: flex;
+
+    display: flex;    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+
     justify-content: center;
-    align-items: center;
+
+    align-items: center;}}
+
     gap: 10px;
+
 }
 
-.submit-btn:hover {
+
+
+.submit-btn:hover {.form-group textarea {.form-group textarea {
+
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);    resize: vertical;    resize: vertical;
+
 }
+
+    min-height: 120px;    min-height: 120px;
 
 .submit-btn:active {
-    transform: translateY(0);
+
+    transform: translateY(0);}}
+
 }
+
+
 
 .submit-btn:disabled {
-    opacity: 0.6;
+
+    opacity: 0.6;.form-group input[type="file"] {.form-group input[type="file"] {
+
     cursor: not-allowed;
-    transform: none;
+
+    transform: none;    padding: 10px;    padding: 10px;
+
 }
+
+    cursor: pointer;    cursor: pointer;
 
 .notification {
-    position: fixed;
+
+    position: fixed;    background: #f8f9fa;    background: #f8f9fa;
+
     top: 20px;
-    right: 20px;
+
+    right: 20px;}}
+
     padding: 15px 20px;
+
     border-radius: 10px;
+
     font-weight: 500;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);.form-group input[type="file"]::-webkit-file-upload-button {.form-group input[type="file"]::-webkit-file-upload-button {
+
     transform: translateX(400px);
-    transition: transform 0.3s ease;
+
+    transition: transform 0.3s ease;    padding: 8px 15px;    padding: 8px 15px;
+
     z-index: 1000;
-    max-width: 350px;
+
+    max-width: 350px;    border: none;    border: none;
+
 }
+
+    border-radius: 6px;    border-radius: 6px;
 
 .notification.show {
-    transform: translateX(0);
+
+    transform: translateX(0);    background: #667eea;    background: #667eea;
+
 }
+
+    color: white;    color: white;
 
 .notification.success {
-    background: #4caf50;
+
+    background: #4caf50;    cursor: pointer;    cursor: pointer;
+
     color: white;
+
+}    font-weight: 500;    font-weight: 500;
+
+
+
+.notification.error {    transition: all 0.3s ease;    transition: all 0.3s ease;
+
+    background: #f44336;
+
+    color: white;}}
+
 }
 
-.notification.error {
-    background: #f44336;
-    color: white;
-}
+
 
 .info-section {
-    background: rgba(255, 255, 255, 0.1);
+
+    background: rgba(255, 255, 255, 0.1);.form-group input[type="file"]::-webkit-file-upload-button:hover {.form-group input[type="file"]::-webkit-file-upload-button:hover {
+
     backdrop-filter: blur(10px);
-    border-radius: 15px;
+
+    border-radius: 15px;    background: #764ba2;    background: #764ba2;
+
     padding: 25px;
-    color: white;
+
+    color: white;}}
+
 }
+
+
 
 .info-section h3 {
-    margin-bottom: 15px;
+
+    margin-bottom: 15px;.image-preview {.image-preview {
+
     font-size: 1.3rem;
+
+}    margin-top: 15px;    margin-top: 15px;
+
+
+
+.info-section ul {    display: none;    display: none;
+
+    list-style: none;
+
+    padding-left: 0;}}
+
 }
 
-.info-section ul {
-    list-style: none;
-    padding-left: 0;
-}
+
 
 .info-section li {
-    padding: 8px 0;
+
+    padding: 8px 0;.image-preview.show {.image-preview.show {
+
     padding-left: 25px;
-    position: relative;
+
+    position: relative;    display: block;    display: block;
+
 }
+
+}}
 
 .info-section li:before {
+
     content: "✓";
+
     position: absolute;
-    left: 0;
+
+    left: 0;.image-preview img {.image-preview img {
+
     font-weight: bold;
-    color: #4caf50;
+
+    color: #4caf50;    max-width: 100%;    max-width: 100%;
+
 }
 
-/* Loading animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    max-height: 300px;    max-height: 300px;
 
-.submit-btn.loading .btn-icon {
-    animation: spin 1s linear infinite;
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
-    .header h1 {
+
+    .header h1 {    border-radius: 10px;    border-radius: 10px;
+
         font-size: 2rem;
-    }
+
+    }    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
     
-    .form-container {
+
+    .form-container {}}
+
         padding: 25px;
+
     }
+
     
+
+    .notification {.image-preview .remove-image {.image-preview .remove-image {
+
+        left: 20px;
+
+        right: 20px;    display: inline-block;    display: inline-block;
+
+        max-width: none;
+
+        transform: translateY(-100px);    margin-top: 10px;    margin-top: 10px;
+
+    }
+
+        padding: 8px 15px;    padding: 8px 15px;
+
+    .notification.show {
+
+        transform: translateY(0);    background: #f44336;    background: #f44336;
+
+    }
+
+}    color: white;    color: white;
+
+
+    border: none;    border: none;
+
+    border-radius: 6px;    border-radius: 6px;
+
+    cursor: pointer;    cursor: pointer;
+
+    font-size: 0.9rem;    font-size: 0.9rem;
+
+    transition: all 0.3s ease;    transition: all 0.3s ease;
+
+}}
+
+
+
+.image-preview .remove-image:hover {.image-preview .remove-image:hover {
+
+    background: #d32f2f;    background: #d32f2f;
+
+}}
+
+
+
+.submit-btn {.submit-btn {
+
+    width: 100%;    width: 100%;
+
+    padding: 15px;    padding: 15px;
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    color: white;    color: white;
+
+    border: none;    border: none;
+
+    border-radius: 10px;    border-radius: 10px;
+
+    font-size: 1.1rem;    font-size: 1.1rem;
+
+    font-weight: 600;    font-weight: 600;
+
+    cursor: pointer;    cursor: pointer;
+
+    transition: all 0.3s ease;    transition: all 0.3s ease;
+
+    display: flex;    display: flex;
+
+    justify-content: center;    justify-content: center;
+
+    align-items: center;    align-items: center;
+
+    gap: 10px;    gap: 10px;
+
+}}
+
+
+
+.submit-btn:hover {.submit-btn:hover {
+
+    transform: translateY(-2px);    transform: translateY(-2px);
+
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+
+}}
+
+
+
+.submit-btn:active {.submit-btn:active {
+
+    transform: translateY(0);    transform: translateY(0);
+
+}}
+
+
+
+.submit-btn:disabled {.submit-btn:disabled {
+
+    opacity: 0.6;    opacity: 0.6;
+
+    cursor: not-allowed;    cursor: not-allowed;
+
+    transform: none;    transform: none;
+
+}}
+
+
+
+.notification {.notification {
+
+    position: fixed;    position: fixed;
+
+    top: 20px;    top: 20px;
+
+    right: 20px;    right: 20px;
+
+    padding: 15px 20px;    padding: 15px 20px;
+
+    border-radius: 10px;    border-radius: 10px;
+
+    font-weight: 500;    font-weight: 500;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    transform: translateX(400px);    transform: translateX(400px);
+
+    transition: transform 0.3s ease;    transition: transform 0.3s ease;
+
+    z-index: 1000;    z-index: 1000;
+
+    max-width: 350px;    max-width: 350px;
+
+}}
+
+
+
+.notification.show {.notification.show {
+
+    transform: translateX(0);    transform: translateX(0);
+
+}}
+
+
+
+.notification.success {.notification.success {
+
+    background: #4caf50;    background: #4caf50;
+
+    color: white;    color: white;
+
+}}
+
+
+
+.notification.error {.notification.error {
+
+    background: #f44336;    background: #f44336;
+
+    color: white;    color: white;
+
+}}
+
+
+
+.info-section {.info-section {
+
+    background: rgba(255, 255, 255, 0.1);    background: rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);    backdrop-filter: blur(10px);
+
+    border-radius: 15px;    border-radius: 15px;
+
+    padding: 25px;    padding: 25px;
+
+    color: white;    color: white;
+
+}}
+
+
+
+.info-section h3 {.info-section h3 {
+
+    margin-bottom: 15px;    margin-bottom: 15px;
+
+    font-size: 1.3rem;    font-size: 1.3rem;
+
+}}
+
+
+
+.info-section ul {.info-section ul {
+
+    list-style: none;    list-style: none;
+
+    padding-left: 0;    padding-left: 0;
+
+}}
+
+
+
+.info-section li {.info-section li {
+
+    padding: 8px 0;    padding: 8px 0;
+
+    padding-left: 25px;    padding-left: 25px;
+
+    position: relative;    position: relative;
+
+}}
+
+
+
+.info-section li:before {.info-section li:before {
+
+    content: "✓";    content: "✓";
+
+    position: absolute;    position: absolute;
+
+    left: 0;    left: 0;
+
+    font-weight: bold;    font-weight: bold;
+
+    color: #4caf50;    color: #4caf50;
+
+}}
+
+
+
+@media (max-width: 768px) {/* Loading animation */
+
+    .header h1 {@keyframes spin {
+
+        font-size: 2rem;    0% { transform: rotate(0deg); }
+
+    }    100% { transform: rotate(360deg); }
+
+    }
+
+    .form-container {
+
+        padding: 25px;.submit-btn.loading .btn-icon {
+
+    }    animation: spin 1s linear infinite;
+
+    }
+
+    .notification {
+
+        left: 20px;/* Responsive design */
+
+        right: 20px;@media (max-width: 768px) {
+
+        max-width: none;    .header h1 {
+
+        transform: translateY(-100px);        font-size: 2rem;
+
+    }    }
+
+        
+
+    .notification.show {    .form-container {
+
+        transform: translateY(0);        padding: 25px;
+
+    }    }
+
+}    
+
     .notification {
         left: 20px;
         right: 20px;

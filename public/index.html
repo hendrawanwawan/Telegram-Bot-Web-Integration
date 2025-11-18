@@ -1,57 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message to Telegram Bot</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Integrasi Telegram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+            background: #f8f9fa;
+        }
+        
+        .image-preview {
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .image-preview.show {
+            display: block;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-preview .remove-image {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .image-preview .remove-image:hover {
+            background: #d32f2f;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .notification.error {
+            background: #f44336;
+            color: white;
+        }
+        
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+        }
+        
+        .info-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .info-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #4caf50;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📱 Send Message to Telegram</h1>
-            <p>Your message will be delivered directly to Telegram!</p>
+            <h1>📱 Kirim Pesan ke Telegram</h1>
+            <p>Pesan akan dikirim langsung ke Telegram!</p>
         </div>
 
         <div class="form-container">
-            <form id="messageForm">
-                <div class="form-group">
-                    <label for="name">👤 Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
+            <div class="form-group">
+                <label for="name">👤 Nama</label>
+                <input type="text" id="name" placeholder="Masukkan nama Anda...">
+            </div>
 
-                <div class="form-group">
-                    <label for="message">� Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
-                </div>
+            <div class="form-group">
+                <label for="pesan">💬 Pesan</label>
+                <textarea id="pesan" rows="6" placeholder="Tulis pesan Anda..."></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="image">�️ Image (Optional)</label>
-                    <input type="file" id="image" name="image" accept="image/*">
-                    <div id="imagePreview" class="image-preview"></div>
-                </div>
+            <div class="form-group">
+                <label for="image">🖼️ Gambar (Opsional)</label>
+                <input type="file" id="image" accept="image/*">
+                <div id="imagePreview" class="image-preview"></div>
+            </div>
 
-                <button type="submit" class="submit-btn">
-                    <span class="btn-text">Send to Telegram</span>
-                    <span class="btn-icon">🚀</span>
-                </button>
-            </form>
+            <button onclick="kirim()" class="submit-btn">
+                <span class="btn-text">Kirim</span>
+                <span class="btn-icon">🚀</span>
+            </button>
+        </div>
+
+        <div class="form-container">
+            <h3 style="margin-bottom: 20px; color: #333;">📨 Pesan Terakhir dari Telegram</h3>
+            
+            <button onclick="lihatPesan()" class="submit-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                <span class="btn-text">Ambil Pesan Terakhir</span>
+                <span class="btn-icon">📥</span>
+            </button>
+            
+            <div id="hasil" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; display: none; min-height: 100px;">
+                <p id="hasilText" style="color: #333; margin: 0;"></p>
+            </div>
         </div>
 
         <div id="notification" class="notification"></div>
 
-        <div class="info-section">
-            <h3>ℹ️ How it works</h3>
+        <!-- <div class="info-section">
+            <h3>ℹ️ Cara Kerja</h3>
             <ul>
-                <li>Fill in your name and message</li>
-                <li>Optionally upload an image (JPG, PNG, GIF, etc.)</li>
-                <li>Click "Send to Telegram" button</li>
-                <li>Your message will be instantly delivered to the configured Telegram chat</li>
-                <li>You'll receive a confirmation once sent successfully</li>
+                <li>Isi nama dan pesan Anda</li>
+                <li>Upload gambar jika diperlukan (opsional)</li>
+                <li>Klik tombol "Kirim" untuk mengirim pesan</li>
+                <li>Klik "Ambil Pesan Terakhir" untuk melihat pesan terakhir di bot</li>
             </ul>
-        </div>
+        </div> -->
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const BOT_TOKEN = "8583317064:AAFeHyxSwMEaMvfx6vduljxEnERQmjHrMHM";
+        const CHAT_ID = "1264374982";
+        
+        const imageInput = document.getElementById('image');
+        const imagePreview = document.getElementById('imagePreview');
+        let selectedImage = null;
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+        
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            
+            if (file) {
+                if (!file.type.startsWith('image/')) {
+                    showNotification('❌ Silakan pilih file gambar yang valid', 'error');
+                    imageInput.value = '';
+                    return;
+                }
+                
+                if (file.size > 10 * 1024 * 1024) {
+                    showNotification('❌ Ukuran gambar harus kurang dari 10MB', 'error');
+                    imageInput.value = '';
+                    return;
+                }
+                
+                selectedImage = file;
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    imagePreview.innerHTML = '<img src="' + event.target.result + '" alt="Preview"><button type="button" class="remove-image" onclick="removeImage()">Hapus Gambar</button>';
+                    imagePreview.classList.add('show');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        function removeImage() {
+            imageInput.value = '';
+            imagePreview.innerHTML = '';
+            imagePreview.classList.remove('show');
+            selectedImage = null;
+        }
+        
+        async function kirim() {
+            const name = document.getElementById('name').value;
+            const pesan = document.getElementById('pesan').value;
+            const btn = document.querySelector('.submit-btn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnIcon = btn.querySelector('.btn-icon');
+            
+            if (!name || !pesan) {
+                showNotification('❌ Nama dan pesan harus diisi!', 'error');
+                return;
+            }
+            
+            const text = '📨 *Pesan Baru dari Website*\n━━━━━━━━━━━━━━━━━━━━\n👤 *Nama:* ' + name + '\n💬 *Pesan:*\n' + pesan + '\n━━━━━━━━━━━━━━━━━━━━\n⏰ Waktu: ' + new Date().toLocaleString('id-ID');
+            
+            btn.disabled = true;
+            btnText.textContent = 'Mengirim...';
+            btnIcon.textContent = '⏳';
+            
+            try {
+                if (selectedImage) {
+                    await kirimGambar(text);
+                } else {
+                    await kirimTeks(text);
+                }
+                
+                showNotification('✅ Pesan berhasil dikirim ke Telegram!', 'success');
+                
+                document.getElementById('name').value = '';
+                document.getElementById('pesan').value = '';
+                removeImage();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('❌ Gagal mengirim pesan. Coba lagi.', 'error');
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = 'Kirim';
+                btnIcon.textContent = '🚀';
+            }
+        }
+        
+        async function kirimTeks(text) {
+            const url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Gagal mengirim pesan');
+            }
+            
+            return await response.json();
+        }
+        
+        async function kirimGambar(caption) {
+            const url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendPhoto';
+            
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+            formData.append('photo', selectedImage);
+            formData.append('caption', caption);
+            formData.append('parse_mode', 'Markdown');
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error('Gagal mengirim gambar');
+            }
+            
+            return await response.json();
+        }
+        
+        async function lihatPesan() {
+            const hasilDiv = document.getElementById('hasil');
+            const hasilText = document.getElementById('hasilText');
+            const btn = event.target.closest('.submit-btn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnIcon = btn.querySelector('.btn-icon');
+            
+            btn.disabled = true;
+            btnText.textContent = 'Mengambil...';
+            btnIcon.textContent = '⏳';
+            
+            try {
+                // Get updates with higher limit and offset
+                const url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/getUpdates?limit=100&offset=-100';
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                console.log('Response data:', data); // For debugging
+                
+                if (!data.ok) {
+                    throw new Error('API Error: ' + (data.description || 'Unknown error'));
+                }
+                
+                if (data.result && data.result.length > 0) {
+                    // Get the last message
+                    const last = data.result[data.result.length - 1];
+                    
+                    let messageText = '';
+                    
+                    if (last.message) {
+                        const msg = last.message;
+                        
+                        if (msg.text) {
+                            messageText = msg.text;
+                        } else if (msg.photo) {
+                            if (msg.caption) {
+                                messageText = msg.caption;
+                            } else {
+                                messageText = '🖼️ Foto';
+                            }
+                        } else if (msg.document) {
+                            if (msg.caption) {
+                                messageText = msg.caption;
+                            } else {
+                                messageText = '� Dokumen';
+                            }
+                        } else if (msg.sticker) {
+                            messageText = '🎨 Stiker';
+                        } else if (msg.voice) {
+                            messageText = '🎤 Pesan suara';
+                        } else {
+                            messageText = '📨 Pesan multimedia';
+                        }
+                    } else {
+                        messageText = 'Pesan tidak dapat dibaca';
+                    }
+                    
+                    hasilText.innerHTML = messageText;
+                    hasilDiv.style.display = 'block';
+                    showNotification('✅ Pesan berhasil diambil!', 'success');
+                } else {
+                    hasilText.innerHTML = '⚠️ <strong>Belum ada pesan di bot.</strong><br><br>💡 <em>Tips: Kirim pesan ke bot Telegram Anda terlebih dahulu, lalu coba lagi.</em>';
+                    hasilDiv.style.display = 'block';
+                    showNotification('ℹ️ Belum ada pesan', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                hasilText.innerHTML = '❌ <strong>Gagal mengambil pesan.</strong><br><br>' + error.message;
+                hasilDiv.style.display = 'block';
+                showNotification('❌ Gagal mengambil pesan', 'error');
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = 'Ambil Pesan Terakhir';
+                btnIcon.textContent = '📥';
+            }
+        }
+    </script>
 </body>
 </html>
